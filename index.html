@@ -41,6 +41,13 @@
             color: #1F486D;
         }
 
+        .intro-paragraph {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 80%;
+            margin: 0 auto;
+        }
 
 
         /* 1F486D */
@@ -134,10 +141,7 @@
 
         /*** Start Cards ***/
 
-        .product-section {
-            display: flex;
-            flex-wrap: wrap;
-        }
+
 
         .card {
             flex-basis: calc(33.33% - 20px);
@@ -159,9 +163,6 @@
 
         /*** Start Brand ***/
 
-        .product-section {
-            text-align: center;
-        }
 
         .brand-section {
             display: flex;
@@ -171,16 +172,7 @@
             background: #f9f9f9;
         }
 
-        @media (max-width: 768px) or (orientation: portrait) {
-            .product-section {
-                flex-wrap: nowrap;
-            }
 
-            .brand-section {
-                flex-direction: column;
-            }
-
-        }
 
 
         .brand-logo {
@@ -277,6 +269,35 @@
             }
         }
 
+        .product-section-title {
+            text-align: center;
+            font-size: clamp(1.5rem, 5vw, 1.8rem);
+            padding: .5rem 0;
+        }
+
+        .product-section {
+            display: flex;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) or (orientation: portrait) {
+            .product-section {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 0 3rem;
+            }
+
+            .brand-section {
+                flex-direction: column;
+            }
+
+            .card {
+                max-width: 400px;
+            }
+
+        }
+
         .product-image-container {
             color: white;
             display: flex;
@@ -286,7 +307,8 @@
             position: relative;
             background-image: url('background2.png');
             background-size: cover;
-            height: 80vw;
+            height: fit-content;
+            padding: 2rem 0;
         }
 
         .product-image-container img {
@@ -428,7 +450,7 @@
         </div>
     </div>
     <div>
-        <h2 style="text-align:center;">How Alpilean transformed people's lives</h2>
+        <h2 class="product-section-title">How Alpilean transformed people's lives</h2>
         <!-- moved and centered this heading -->
         <div class="product-section">
             <div class="card">
