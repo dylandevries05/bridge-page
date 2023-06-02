@@ -3,6 +3,12 @@
 
 <head>
     <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
         body,
         html {
             margin: 0;
@@ -11,9 +17,12 @@
             font-family: Arial, sans-serif;
         }
 
+        /*** Start Intro ***/
+
         .background {
             background-image: url('background1.png');
-            height: 100%;
+            height: fit-content;
+            padding-bottom: 2rem;
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
@@ -25,33 +34,96 @@
             font-size: 2em;
         }
 
+        .intro-container {
+            display: flex;
+            padding: 3rem 6rem 2rem 6rem;
+            gap: 6rem;
+            color: #1F486D;
+        }
+
+
+
+        /* 1F486D */
+        .intro-text {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            justify-content: center;
+            align-items: start;
+            font-size: large;
+            text-align: left;
+            gap: 15px;
+        }
+
+        .intro-text h2 {
+            font-size: 1.7em;
+            font-weight: 600;
+        }
+
+        .intro-image {
+            display: flex;
+            flex: 1;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .intro-image img {
+            width: 100%;
+            height: auto;
+        }
+
         .intro-section {
             display: flex;
-            justify-content: space-between;
-            padding: 50px 0;
-            background: white;
-            color: black;
+            flex-direction: column;
+            gap: 1rem;
         }
 
-        .intro-section .intro-text {
-            flex: 1;
-            padding: 20px;
+        .intro-title {
+            font-size: 20px;
         }
 
-        .intro-section .intro-image {
-            flex: 1;
-            padding: 20px;
+        .intro-list {
+            font-size: 14px;
+            max-width: 50%;
+            margin: 0 auto;
+            width: fit-content;
         }
 
-        .intro-section .intro-image img {
-            max-width: 100%;
+        @media (max-width: 767px) or (orientation: portrait) {
+            .intro-container {
+                flex-direction: column-reverse;
+                align-items: center;
+                gap: 0;
+            }
+
+            .intro-list {
+                max-width: 80%;
+            }
+
+            .intro-image {
+                max-width: 80%;
+            }
+
+            .intro-text {
+                display: flex;
+                flex: 1;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                /* Change align-items to center */
+                font-size: center;
+                text-align: center;
+                /* Change text-align to center */
+                gap: 15px;
+                font-size: medium;
+            }
         }
 
         .button {
-            background-color: #4CAF50;
+            background-color: #136E73;
             border: none;
             color: white;
-            padding: 15px 32px;
+            padding: 10px 25px;
             text-align: center;
             text-decoration: none;
             display: inline-block;
@@ -59,6 +131,8 @@
             margin: 4px 2px;
             cursor: pointer;
         }
+
+        /*** Start Cards ***/
 
         .product-section {
             display: flex;
@@ -69,116 +143,384 @@
             flex-basis: calc(33.33% - 20px);
             margin: 10px;
             padding: 20px;
-            background-color: #f2f2f2;
-            border-radius: 5px;
+            background-color: #ffffff;
+            /* changed background color to white */
+            border: 1px solid black;
+            /* added black border */
+            border-radius: 25px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            /* added text alignment */
         }
 
-        @media screen and (min-width: 768px) {
-            .product-section {
-                flex-wrap: nowrap;
-            }
+        .person-name {
+            font-weight: bold;
+        }
+
+        /*** Start Brand ***/
+
+        .product-section {
+            text-align: center;
         }
 
         .brand-section {
             display: flex;
-            justify-content: space-between;
+            justify-content: space-around;
             padding: 50px 0;
             align-items: center;
             background: #f9f9f9;
         }
 
+        @media (max-width: 768px) or (orientation: portrait) {
+            .product-section {
+                flex-wrap: nowrap;
+            }
+
+            .brand-section {
+                flex-direction: column;
+            }
+
+        }
+
+
         .brand-logo {
-            width: 200px;
+            width: 40vw;
             height: auto;
         }
 
+        /*** Start Steps ***/
+
+        .next-steps {
+            text-align: center;
+        }
+
+        .title {
+            font-size: 1.5em;
+            /* adjust the size as needed */
+            margin: 20px auto;
+            /* adjust the spacing as needed */
+            color: #1F486D;
+        }
+
+        .steps-container {
+            display: flex;
+            justify-content: center;
+            margin: 2rem auto;
+            max-width: 80%;
+            /* adjust the width as needed */
+            color: #136E73;
+            gap: 2.5rem;
+        }
+
+        .step {
+            flex-basis: 30%;
+            /* adjust the width as needed */
+            box-sizing: border-box;
+        }
+
+        .step-title {
+            font-size: 1.5em;
+            /* adjust the size as needed */
+            margin-bottom: 10px;
+            /* adjust the spacing as needed */
+        }
+
+        .step-description {
+            font-size: 1em;
+            /* adjust the size as needed */
+        }
+
+        @media (max-width: 767px) or (orientation: portrait) {
+
+            .step-title {
+                font-size: 2em;
+                /* adjust the size as needed */
+            }
+
+            .steps-container {
+                flex-direction: column;
+            }
+        }
+
+        /*** Start Product ***/
+
         .product-info {
-            flex: 1;
-            padding: 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .features {
+            display: flex;
+            justify-content: center;
+            padding: 20px 0;
+        }
+
+        .features ul {
+            margin: 0 20px;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 20px;
+            width: fit-content;
+        }
+
+        @media (min-width: 768px) or (orientation: portrait) {
+            .product-info {
+                text-align: left;
+            }
+
+            .features {
+                justify-content: start;
+            }
         }
 
         .product-image-container {
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             position: relative;
-        }
-
-        .background-image {
             background-image: url('background2.png');
             background-size: cover;
-            height: 300px;
+            height: 80vw;
         }
 
-        .new-image-container {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+        .product-image-container img {
+            width: 40%;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        .product-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 0 20%;
             text-align: center;
         }
 
         .new-image-container img {
-            width: 200px;
-            height: 200px;
+            width: 60%;
+            aspect-ratio: 1/1;
             object-fit: cover;
-            border-radius: 50%;
+            border-radius: 0;
+            /* Removed rounded border */
             margin-bottom: 20px;
         }
 
-        .contact-section {
-            padding: 50px 0;
+        .journey-button {
+            display: inline-block;
+            background-color: #1F486D;
+            color: white;
+            padding: 10px 25px;
             text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            margin-top: 20px;
+            /* New margin to place the button below the text */
+            cursor: pointer;
+        }
+
+
+        /*** Start Contact ***/
+
+        .contact-section {
+            background-color: #f2f2f2;
+            padding: 50px;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-section form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contact-section label {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            text-align: left;
+            width: 100%;
+        }
+
+        .contact-section input,
+        .contact-section textarea {
+            padding: 10px;
+            margin-bottom: 20px;
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            background-color: #C9C9C9;
+        }
+
+        .contact-section textarea {
+            height: 150px;
+        }
+
+        .contact-section button[type="submit"] {
+            background-color: #136E73;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        .contact-section button[type="submit"]:hover {
+            background-color: #3e8e41;
         }
     </style>
 </head>
 
 <body>
     <div class="background">
-        <div class="intro-text">
-            <h2>Our Amazing Product</h2>
-            <p>This product is fantastic because...</p>
-            <a href="link" class="button">Learn More</a>
-        </div>
-        <div class="intro-image">
-            <img src="product1.png" alt="Product Image">
+        <div class="">
+            <div class="intro-container">
+
+                <div class="intro-text">
+                    <h2>Lose Weight Effortlessly and Achieve Your Dream Body with Alpilean!</h2>
+                    <p>Ready to take control of your weight loss journey? Don't wait any longer! Click the button below
+                        to
+                        order your supply of Alpilean and start seeing real results.</p>
+                    <a href="https://" class="button">Order Now</a>
+                </div>
+                <div class="intro-image">
+                    <img src="product1.png" alt="Product Image">
+                </div>
+            </div>
+            <div class="intro-paragraph">
+                <div class="intro-section">
+                    <h2 class="intro-title">Struggling to Lose Weight? Alpilean Provides the Solution You've Been
+                        Looking For!</h2>
+                    <ul class="intro-list">
+                        <li>Experiencing slow progress or hitting weight loss plateaus despite your efforts.</li>
+                        <li>Battling constant cravings and struggling to control your appetite.</li>
+                        <li>Feeling drained and lacking energy throughout the day, hindering your ability to stay active
+                            and motivated.</li>
+                    </ul>
+                </div>
+                <div class="intro-section">
+                    <h2 class="intro-title">Discover the Secret to Effortless Weight Loss with Alpilean - Say Goodbye to
+                        Yo-Yo Dieting!</h2>
+                    <ul class="intro-list">
+                        <li>Fed up with yo-yo dieting, where you lose weight only to gain it back again, leaving you
+                            frustrated and demotivated.</li>
+                        <li>Finding it challenging to stick to strict diet plans that restrict your favorite foods,
+                            making you feel deprived.</li>
+                        <li>Struggling to stay consistent with your weight loss efforts due to a lack of energy and
+                            motivation.</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="intro-section">
-    </div>
-    <div class="product-section">
-        <h2>Our Products</h2>
-        <div class="card">
-            <h3>Product 1</h3>
-            <p>This is a great product because...</p>
-        </div>
-        <div class="card">
-            <h3>Product 2</h3>
-            <p>This is a great product because...</p>
-        </div>
-        <div class="card">
-            <h3>Product 3</h3>
-            <p>This is a great product because...</p>
+    <div>
+        <h2 style="text-align:center;">How Alpilean transformed people's lives</h2>
+        <!-- moved and centered this heading -->
+        <div class="product-section">
+            <div class="card">
+                <p>"I had tried numerous weight loss products before, but Alpilean truly stands out. It helped me shed
+                    25
+                    pounds in just three months! I feel more energized, confident, and healthier than ever. Thank you,
+                    Alpilean!"</p>
+                <p class="person-name">Sarah W.</p>
+            </div>
+            <div class="card">
+                <p>"I cannot thank Alpilean enough for the amazing results. It has helped me shed stubborn belly fat and
+                    slim down overall. I feel more comfortable in my body, and my confidence has skyrocketed. Alpilean
+                    is a
+                    true lifesaver!"</p>
+                <p class="person-name">Emily S.</p>
+            </div>
+            <div class="card">
+                <p>"Alpilean has been a game-changer for me. I struggled with my weight for years, trying different
+                    diets
+                    and exercise routines. With Alpilean, I finally found a solution that worked. I've lost 30 pounds,
+                    and
+                    I'm still going strong. This product is a game-changer!"</p>
+                <p class="person-name">Micheal L.</p>
+            </div>
         </div>
     </div>
     <div class="brand-section">
         <img src="logo.png" alt="Brand Logo" class="brand-logo">
         <div class="product-info">
-            <h2>Why Choose Our Product?</h2>
-            <p>This product offers...</p>
+            <h2>What Alpilean has to offer</h2>
+            <div class="features">
+                <ul>
+                    <li>Advanced Formula</li>
+                    <li>Effective Fat Burning</li>
+                    <li>Appetite Control</li>
+                </ul>
+                <ul>
+                    <li>Enhanced Energy and Focus</li>
+                    <li>Quality and Safety</li>
+                    <li>Support and Guidance</li>
+                </ul>
+            </div>
+            <a href="#" class="button">Try it now!</a>
         </div>
     </div>
+
+    <div class="next-steps">
+        <h1 class="title">Next Steps: Your Journey to Transformation in 3 Simple Steps</h1>
+        <div class="steps-container">
+            <div class="step">
+                <h2 class="step-title">Step 1</h2>
+                <p class="step-description">Click the "Order Now" button and provide your shipping information on our
+                    secure checkout page.</p>
+            </div>
+            <div class="step">
+                <h2 class="step-title">Step 2</h2>
+                <p class="step-description">Expect fast and reliable delivery of your Alpilean supply to your doorstep
+                    within 5-7 business days in US/Canada and 10-16 International. </p>
+            </div>
+            <div class="step">
+                <h2 class="step-title">Step 3</h2>
+                <p class="step-description">Once your package arrives, start taking Alpilean as directed on the
+                    packaging. Combine it with a balanced diet and regular exercise for the best results..</p>
+            </div>
+        </div>
+    </div>
+
+
     <div class="product-image-container">
-        <div class="background-image"></div>
-        <div class="new-image-container">
-            <img src="product2.png" alt="New Image">
-            <h2>Title</h2>
-            <p>Description</p>
+        <img src="product2.png" alt="New Image">
+        <div class="product-text">
+            <h2>Take the first step towards your weight loss transformation!</h2>
+            <p>Are you ready to break free from the struggles of weight loss and embrace a healthier, more confident
+                you? Alpilean is here to support you on your journey. Don't hesitate - seize the opportunity to
+                experience the life-changing benefits of Alpilean. Order now and start your transformation today!</p>
+            <a href="#" class="journey-button">Start Your Journey to Transformation</a> <!-- Added button -->
         </div>
     </div>
     <div class="contact-section">
         <h2>Contact Us</h2>
-        <p>For more information about our products, please contact us at:</p>
-        <p>Email: info@ourproduct.com</p>
-        <p>Phone: +1 123 456 7890</p>
+        <form>
+            <label for="fullname">Full Name:</label>
+            <input type="text" id="fullname" name="fullname" required placeholder="Enter your full name">
+
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" required placeholder="Enter your email address">
+
+            <label for="message">What can we help you with?</label>
+            <textarea id="message" name="message" required placeholder="Enter your message here"></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
     </div>
 </body>
 
